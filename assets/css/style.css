@@ -1,0 +1,275 @@
+:root { --morado: #5b2c9f; --morado-claro: #8b5cf6; --fondo: #f6f3ff; --amarillo: #ffc83d; }
+
+body { font-family: 'Poppins', sans-serif; color: #333; }
+h1, h2, .titulo { font-family: 'Playfair Display', serif; color: var(--morado); }
+section { scroll-margin-top: 80px; }
+.bg-claro { background: var(--fondo); }
+.text-morado { color: var(--morado); }
+
+/* Barra de navegación */
+.nav-morado { background: var(--morado); }
+.logo-box { background: #fff; border-radius: 50px; padding: 4px 14px; }
+.nav-morado .nav-link { color: #fff; transition: color .3s; }
+.nav-morado .nav-link:hover { color: var(--amarillo); }            /* HOVER 1: menú */
+
+/* Hero */
+.hero {
+  background: linear-gradient(135deg, #4b1f8f, var(--morado-claro));
+  padding: 120px 0 90px;
+  border-bottom-left-radius: 60px;
+  border-bottom-right-radius: 60px;
+}
+.hero h1 { color: #fff; }
+
+/* Botones */
+.btn-morado { background: var(--morado); color: #fff; border: 0; transition: background .3s; }
+.btn-morado:hover { background: var(--morado-claro); color: #fff; }
+.btn-hover { transition: transform .3s, box-shadow .3s; }
+.btn-hover:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,.25); }  /* HOVER 2: botones */
+
+/* Tarjetas del carrusel */
+.tarjeta-card {
+  border: 0; border-radius: 16px; overflow: hidden;
+  box-shadow: 0 8px 24px rgba(91,44,159,.12);
+  transition: transform .3s, box-shadow .3s;
+}
+.tarjeta-card:hover { transform: translateY(-8px); box-shadow: 0 16px 32px rgba(91,44,159,.25); }  /* HOVER 3: tarjetas */
+.tarjeta-top { background: linear-gradient(135deg, #6d3bd0, #a78bfa); padding: 28px 0; display: flex; justify-content: center; }
+.leer-mas { color: var(--morado); text-decoration: none; font-size: .85rem; }
+.leer-mas:hover { text-decoration: underline; }
+.swiper-pagination-bullet-active { background: var(--morado); }
+
+/* Beneficios */
+.beneficio .icono {
+  width: 72px; height: 72px; border-radius: 50%; margin: 0 auto 12px;
+  background: linear-gradient(135deg, var(--morado), var(--morado-claro)); color: #fff;
+  display: flex; align-items: center; justify-content: center; font-size: 1.6rem;
+  transition: transform .5s;
+}
+.beneficio:hover .icono { transform: rotate(360deg) scale(1.1); }  /* HOVER 4: íconos */
+
+/* Imágenes */
+.hover-zoom { transition: transform .4s; }
+.hover-zoom:hover { transform: scale(1.04); }                   /* HOVER 5: imágenes */
+
+/* Pasos de activación */
+.paso { display: flex; gap: 14px; align-items: center; padding: 12px; border-radius: 12px; opacity: .45; transition: all .4s; }
+.paso.activo { opacity: 1; background: #fff; box-shadow: 0 6px 18px rgba(91,44,159,.15); transform: translateX(8px); }
+.num {
+  width: 38px; height: 38px; border-radius: 50%; flex-shrink: 0;
+  background: var(--morado); color: #fff; font-weight: 600;
+  display: flex; align-items: center; justify-content: center;
+}
+
+/* Footer */
+.footer { background: var(--morado); margin-top: 0; }
+.footer a { color: #e9ddff; text-decoration: none; transition: color .3s, padding-left .3s; }
+.footer a:hover { color: #fff; padding-left: 6px; }              /* HOVER 6: enlaces */
+
+/* Panel admin: deja espacio bajo la barra fija */
+.admin { padding-top: 110px !important; }
+
+/* ANIMACIÓN 1: flotar */
+.flotar { animation: flotar 3s ease-in-out infinite; }
+@keyframes flotar { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-14px); } }
+
+/* Botón de WhatsApp + ANIMACIÓN 2: pulso */
+.whatsapp {
+  position: fixed; bottom: 20px; right: 20px; z-index: 1000;
+  width: 58px; height: 58px; border-radius: 50%;
+  background: #25d366; color: #fff; font-size: 32px; text-decoration: none;
+  display: flex; align-items: center; justify-content: center;
+  animation: pulso 2s infinite; transition: transform .3s;
+}
+.whatsapp:hover { color: #fff; transform: scale(1.12); }
+@keyframes pulso {
+  0%   { box-shadow: 0 0 0 0 rgba(37,211,102,.6); }
+  70%  { box-shadow: 0 0 0 18px rgba(37,211,102,0); }
+  100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
+}
+
+/* RESPONSIVE: celulares */
+@media (max-width: 768px) {
+  .hero { padding: 100px 0 60px; text-align: center; border-radius: 0 0 30px 30px; }
+  .hero h1 { font-size: 2.4rem; }
+  .paso.activo { transform: none; }
+}
+
+/* Imagen de tarjeta dentro del carrusel */
+.card-img {
+  width: 240px;
+  max-width: 85%;
+  border-radius: 16px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, .35);
+  transition: transform .4s;
+}
+.tarjeta-card:hover .card-img { transform: rotate(-4deg) scale(1.06); }
+
+/* Todas las tarjetas del carrusel con la misma altura */
+.tarjetas-swiper .swiper-slide { height: auto; }
+.tarjetas-swiper .swiper-wrapper { align-items: stretch; }
+
+/* ===== Formulario de contacto ===== */
+.contacto-card {
+  border-radius: 24px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 20px 50px rgba(91, 44, 159, .2);
+}
+
+/* Panel morado */
+.contacto-info {
+  background: linear-gradient(135deg, #4b1f8f, var(--morado-claro));
+  color: #fff;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.contacto-info h2 { color: #fff; }
+.contacto-info li { margin-bottom: 12px; }
+.contacto-info li i {
+  width: 34px; height: 34px; margin-right: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .18);
+  color: var(--amarillo);
+  display: inline-flex; align-items: center; justify-content: center;
+}
+.contacto-img { max-width: 240px; margin: 10px auto 0; }
+
+/* Lado del formulario */
+.contacto-form { padding: 40px; }
+.contacto-form h5 { color: var(--morado); font-weight: 600; }
+
+/* Campos con ícono */
+.campo { border-radius: 12px; transition: box-shadow .3s; }
+.campo .input-group-text {
+  background: var(--fondo);
+  color: var(--morado);
+  border: 1px solid #e1d9f5;
+  border-right: 0;
+  border-radius: 12px 0 0 12px;
+  transition: border-color .3s;
+}
+.campo .form-control,
+.campo .form-select {
+  border: 1px solid #e1d9f5;
+  border-left: 0;
+  border-radius: 0 12px 12px 0;
+  padding: 12px;
+  transition: border-color .3s;
+}
+.campo .form-control:focus,
+.campo .form-select:focus { box-shadow: none; border-color: var(--morado-claro); }
+.campo:focus-within { box-shadow: 0 0 0 .22rem rgba(139, 92, 246, .22); }
+.campo:focus-within .input-group-text { border-color: var(--morado-claro); }
+
+/* Botón con degradado */
+.btn-enviar {
+  background: linear-gradient(135deg, var(--morado), var(--morado-claro));
+  color: #fff; border: 0; border-radius: 12px;
+  padding: 14px; font-weight: 600;
+  transition: transform .3s, box-shadow .3s;
+}
+.btn-enviar:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(91, 44, 159, .35);
+  color: #fff;
+}
+
+/* Celular */
+@media (max-width: 768px) {
+  .contacto-info, .contacto-form { padding: 28px 22px; }
+  .contacto-img { max-width: 180px; }
+}
+
+/* ===== Página de gracias ===== */
+.gracias {
+  min-height: 85vh;
+  padding: 110px 0 70px;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(139, 92, 246, .18), transparent 45%),
+    radial-gradient(circle at 85% 80%, rgba(255, 200, 61, .18), transparent 40%),
+    var(--fondo);
+}
+.gracias-card {
+  max-width: 560px;
+  background: #fff;
+  border-radius: 24px;
+  padding: 48px 36px;
+  box-shadow: 0 20px 50px rgba(91, 44, 159, .18);
+}
+.gracias-card h1 { font-size: 2.6rem; margin: 18px 0 10px; }
+
+/* Ícono con animación de entrada */
+.gracias-icono {
+  width: 92px; height: 92px; margin: 0 auto;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--amarillo), #ffb300);
+  color: var(--morado);
+  font-size: 2.6rem;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 10px 24px rgba(255, 184, 0, .45);
+  animation: aparecer .6s ease-out;
+}
+@keyframes aparecer {
+  0%   { transform: scale(0); opacity: 0; }
+  70%  { transform: scale(1.15); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Botón volver al inicio */
+.btn-volver {
+  display: inline-flex; align-items: center; gap: 10px;
+  margin-top: 14px; padding: 14px 32px;
+  border-radius: 50px;
+  background: linear-gradient(135deg, var(--morado), var(--morado-claro));
+  color: #fff; font-weight: 600; text-decoration: none;
+  box-shadow: 0 8px 20px rgba(91, 44, 159, .3);
+  transition: transform .3s, box-shadow .3s;
+}
+.btn-volver i { transition: transform .3s; }
+.btn-volver:hover {
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 14px 28px rgba(91, 44, 159, .4);
+}
+.btn-volver:hover i { transform: translateX(-5px); }
+
+@media (max-width: 768px) {
+  .gracias-card { padding: 36px 22px; }
+  .gracias-card h1 { font-size: 2.1rem; }
+}
+
+/* ===== Botón del hero: Solicitar mi tarjeta ===== */
+.btn-solicitar {
+  position: relative;
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 15px 34px;
+  border-radius: 50px;
+  background: linear-gradient(135deg, #ffd43b, #ffb300);
+  color: #3b1a6e; font-weight: 600; text-decoration: none;
+  box-shadow: 0 10px 24px rgba(255, 184, 0, .4);
+  overflow: hidden;
+  transition: transform .3s, box-shadow .3s;
+}
+.btn-solicitar i { transition: transform .3s; }
+.btn-solicitar:hover {
+  color: #3b1a6e;
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px rgba(255, 184, 0, .55);
+}
+.btn-solicitar:hover i { transform: translateX(6px); }
+
+/* Brillo que cruza el botón al pasar el mouse */
+.btn-solicitar::after {
+  content: "";
+  position: absolute; top: 0; left: -80%;
+  width: 50%; height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, .6), transparent);
+  transform: skewX(-20deg);
+}
+.btn-solicitar:hover::after { left: 130%; transition: left .7s; }
+
+/* Tarjeta del hero con un tamaño más controlado */
+.hero img.flotar { max-width: 460px; width: 100%; }
